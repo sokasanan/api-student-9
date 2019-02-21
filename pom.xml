@@ -16,6 +16,7 @@
 
 	<properties>
 		<java.version>11</java.version>
+		<spring-cloud.version>Greenwich.RELEASE</spring-cloud.version>
 	</properties>
 
 	<dependencies>
@@ -55,12 +56,32 @@
     		<artifactId>spring-cloud-cloudfoundry-connector</artifactId>
 		</dependency>
 		<dependency>
+    		<groupId>org.springframework.cloud</groupId>
+    		<artifactId>spring-cloud-starter-zipkin</artifactId>
+		</dependency>
+		<dependency>
    			<groupId>org.springframework.geode</groupId>
    			<artifactId>spring-gemfire-starter</artifactId>
    			<version>1.0.0.M3</version>
 		</dependency>
+		<dependency>
+    		<groupId>io.micrometer</groupId>
+    		<artifactId>micrometer-registry-prometheus</artifactId>
+		</dependency>
 	</dependencies>
 	
+	<dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring-cloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+    
     <repositories>
         <repository>
             <id>spring-milestones</id>
